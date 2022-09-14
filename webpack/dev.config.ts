@@ -1,13 +1,43 @@
 import * as path from 'path';
 import * as webpack from 'webpack';
+import * as webpackDevServer from 'webpack-dev-server';
+import * as HtmlWebpackPlugin from 'html-webpack-plugin'
 
-const config: webpack.Configuration = {
+interface IConfiguration extends webpack.Configuration {
+  devServer: webpackDevServer.Configuration
+}
+
+const config: IConfiguration = {
   mode: 'development',
-  entry: '../src/main.ts',
+  entry: path.resolve(__dirname, '..', 'src/main.ts'),
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '..', 'dist'),
     filename: '[id].bundle.js'
-  }
+  },
+  module: {
+    rules: [
+      { 
+        test: /\.tsx?$/,
+        loader: "ts-loader",
+        exclude: /node_modules/
+      }
+    ]
+  },
+  resolve: {
+    extensions: [".ts", ".js"]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, '..', 'src/template/index.html')
+    })
+  ],
+  devServer: {
+    static: {
+      directory: path.join(__dirname, '..', 'public')
+    },
+    compress: true,
+    port: 1919
+  },
 }
 
 export default config
