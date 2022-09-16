@@ -16,6 +16,14 @@ const config: IConfiguration = {
   },
   module: {
     rules: [
+      {
+        test: /\.less$/i,
+        use: [
+          'style-loader',
+          'css-loader',
+          'less-loader'
+        ]
+      },
       { 
         test: /\.tsx?$/,
         loader: "ts-loader",
@@ -35,6 +43,7 @@ const config: IConfiguration = {
     static: {
       directory: path.join(__dirname, '..', 'public')
     },
+    hot: true,
     compress: true,
     port: 1919
   },
