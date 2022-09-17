@@ -1,7 +1,5 @@
 class InteractiveObject {
-  constructor() {
-    const a = 1;
-  }
+  constructor() {}
 }
 
-export default InteractiveObject
+export default InteractiveObject;

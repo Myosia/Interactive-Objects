@@ -1,9 +1,9 @@
-import './style/index.less'
+import './style/index.less';
 
 const main = () => {
-  console.log('Hello World!')
-}
+  console.log('Hello World!');
+};
 
-main()
+main();
 
-export default main
+export default main;

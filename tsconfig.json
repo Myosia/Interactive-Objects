@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
     "target": "ES5",
-    "lib": ["ES2015", "ES2017", "dom"],
+    "lib": ["es6", "dom", "esnext"],
+    "moduleResolution": "node",
+    "declaration": true,
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,

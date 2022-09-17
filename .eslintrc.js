@@ -6,4 +6,7 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
-}
+  rules: {
+    semi: ['error', 'always']
+  }
+};

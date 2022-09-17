@@ -1,7 +1,7 @@
 import * as path from 'path';
 import * as webpack from 'webpack';
 import * as webpackDevServer from 'webpack-dev-server';
-import * as HtmlWebpackPlugin from 'html-webpack-plugin'
+import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 
 interface IConfiguration extends webpack.Configuration {
   devServer: webpackDevServer.Configuration
@@ -41,12 +41,12 @@ const config: IConfiguration = {
   ],
   devServer: {
     static: {
-      directory: path.join(__dirname, '..', 'public')
+      directory: path.resolve(__dirname, '..', 'public')
     },
     hot: true,
     compress: true,
     port: 1919
   },
-}
+};
 
-export default config
+export default config;
